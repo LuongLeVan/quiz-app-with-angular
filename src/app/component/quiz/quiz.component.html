@@ -1,1 +1,7 @@
-<p>quiz works!</p>
+<div class="p-6 bg-blue-400 w-full h-full  text-white">
+   <ul>
+    <li  *ngFor="let ques of dataList | async">
+        {{ques}}
+    </li>
+   </ul>
+</div>

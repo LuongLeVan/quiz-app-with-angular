@@ -1,18 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Home Page</title>
-</head>
-<body>
-        
-    <div class="p-4 mx-4 bg-blue-400 w-[500px] h-[400px] rounded">
-            <h3 class="text-center text-white font-semibold text-[32px] mb-6">Welcome To My Quiz App</h3>
-            <label for="quantity" class="block text-white">Total Question</label>
-            <input type="number" name="quantity"  id="quantity" min="10" max="50" class="outline-none">
-    
+  </head>
+  <body>
+    <div class="p-4 mx-4 bg-blue-400 w-[500px] h-[600px] rounded ">
+      <h3 class="text-center text-white font-semibold text-[32px] mb-6">
+        Welcome To Quiz App
+      </h3>
+      <div class="flex items-center justify-between">
+        <div class="card flex  justify-around">
+          <p-dropdown [options]="categories" [optionValue]="categories.id" [(ngModel)]="selectedCategory" optionLabel="name" (onChange)="handleCategory($event.value)"></p-dropdown>
         </div>
-</body>
+        <div class="card flex justify-content-center my-6">
+          <p-dropdown [options]="difficulties" [(ngModel)]="selectDifficult" optionLabel="name"  (onChange)="handleDifficulty($event.value)"></p-dropdown>
+        </div>
+      </div>
+      
+      <div class="flex justify-between items-center">
+        <div class="card flex justify-content-center">
+          <p-dropdown [options]="types" [(ngModel)]="selectType" optionLabel="name" (onChange)="handleType($event.value)"></p-dropdown>
+        </div>
+        <input type="number" class="p-3 w-[100px]" [(ngModel)]="quantity">
+      </div>
+      
+      
+      <button class="block w-full text-center mt-8 text-white p-4 rounded bg-green-400" type="submit" (click)="handleGetQuestion()">Start</button>
+      
+      
+    </div>
+  </body>
 </html>
